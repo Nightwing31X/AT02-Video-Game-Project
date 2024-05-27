@@ -28,9 +28,19 @@ public class Interaction : MonoBehaviour, ILoggable
 
     private Interactable engagedInteraction;
 
+    public GameObject PickUpText; //# Text Promp to pickup things
+
     /// <summary>
     /// Update is called once per frame.
     /// </summary>
+    /// 
+
+    void Start()
+    {
+        PickUpText.SetActive(false); //# Make sure it is turned off when game starts
+    }
+
+
     private void Update()
     {
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, distance, interactionLayers) == true || engagedInteraction != null)
@@ -39,6 +49,8 @@ public class Interaction : MonoBehaviour, ILoggable
             {
                 Debug.DrawRay(transform.position, transform.forward * distance, Color.green, 0.2f);
             }
+
+            PickUpText.SetActive(true); //# Pick Up text turns on
 
             if (Input.GetButtonDown("Interaction") == true)
             {
@@ -57,6 +69,10 @@ public class Interaction : MonoBehaviour, ILoggable
                     engagedInteraction = null;
                 }
             }
+        }
+        else
+        {
+            PickUpText.SetActive(false); //# Pick Up text turns off
         }
     }
 

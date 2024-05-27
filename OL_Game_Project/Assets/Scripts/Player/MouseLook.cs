@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 #region AUTHOR & COPYRIGHT DETAILS
@@ -49,7 +50,7 @@ public class MouseLook : MonoBehaviour
     private bool cameraShaking = false;
     private float currentShakeMagnitude = 0f;
     private float currentSwayAmount = 0f;
-
+                 
     /// <summary>
     /// Enables/disables the ability to move the camera by moving the mouse.
     /// </summary>
@@ -142,7 +143,7 @@ public class MouseLook : MonoBehaviour
             transform.localPosition = new Vector3(originalLocalPosition.x + x, originalLocalPosition.y + y, originalLocalPosition.z);
         }
     }
-
+        
     /// <summary>
     /// Sets the rotation of the camera and parent object based on the passed parameters.
     /// </summary>
@@ -241,7 +242,7 @@ public class MouseLook : MonoBehaviour
     {
         LookEnabled = !toggle;
     }
-
+        
     /// <summary>
     /// Logs a formatted debugging messaged to the console, of the warning level specified.
     /// </summary>
