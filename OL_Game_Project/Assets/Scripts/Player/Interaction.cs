@@ -51,6 +51,7 @@ public class Interaction : MonoBehaviour, ILoggable
             }
 
             PickUpText.SetActive(true); //# Pick Up text turns on
+            //Log($"Text: {hitInfo.transform.gameObject.name}");
 
             if (Input.GetButtonDown("Interaction") == true)
             {
