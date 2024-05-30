@@ -50,7 +50,7 @@ public class Interaction : MonoBehaviour, ILoggable
                 Debug.DrawRay(transform.position, transform.forward * distance, Color.green, 0.2f);
             }
 
-            PickUpText.SetActive(true); //# Pick Up text turns on
+            PickUpText.SetActive(true); //# Pickup text turns on
             //Log($"Text: {hitInfo.transform.gameObject.name}");
 
             if (Input.GetButtonDown("Interaction") == true)

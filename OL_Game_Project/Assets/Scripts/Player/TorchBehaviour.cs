@@ -6,6 +6,9 @@ using UnityEngine.UIElements;
 
 public class TorchBehaviour : MonoBehaviour
 {
+
+    private Renderer RenderTorch;
+
     public GameObject Torch; //# Rereference to the Model
     public GameObject Light; //# Rereference to the Light Source
     public GameObject Crosshair; //# Rereference to the Crosshair Image
@@ -18,11 +21,17 @@ public class TorchBehaviour : MonoBehaviour
     public bool off;
 
 
+    void Awake()
+    {
+        RenderTorch = Torch.GetComponent<Renderer>();
+        RenderTorch.enabled = false;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        if (Torch.activeInHierarchy == true)
+        
+        if (RenderTorch.enabled == true)
         {
             Crosshair.SetActive(false);
             off = true;
@@ -37,9 +46,10 @@ public class TorchBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Torch.activeInHierarchy == true)
+        //if (Torch.activeInHierarchy == true)
+        if (RenderTorch.enabled == true)
         {
-            Crosshair.SetActive(false);
+            //Crosshair.SetActive(false);
             if (off && Input.GetButtonDown("Flashlight_toggle"))
             {
                 Light.SetActive(true);
@@ -65,3 +75,15 @@ public class TorchBehaviour : MonoBehaviour
 
     }
 }
+
+
+
+//POSITION
+// x = 0.5
+// y = -0.3
+// z = 0.5
+
+// ROTATION
+// x = 5.25
+// y = 171
+// z = 0
