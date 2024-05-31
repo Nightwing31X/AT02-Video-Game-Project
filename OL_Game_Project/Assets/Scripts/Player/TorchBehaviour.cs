@@ -14,11 +14,11 @@ public class TorchBehaviour : MonoBehaviour
     public GameObject Crosshair; //# Rereference to the Crosshair Image
 
 
-    //public AudioSource turnOn;
-    //public AudioSource turnOff;
+    public AudioSource turnOn;
+    public AudioSource turnOff;
 
-    public bool on;
-    public bool off;
+    private bool on;
+    private bool off;
 
 
     void Awake()
@@ -46,21 +46,20 @@ public class TorchBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Torch.activeInHierarchy == true)
         if (RenderTorch.enabled == true)
         {
-            //Crosshair.SetActive(false);
+            Crosshair.SetActive(false);
             if (off && Input.GetButtonDown("Flashlight_toggle"))
             {
                 Light.SetActive(true);
-                //turnOn.Play(); 
+                turnOn.Play(); 
                 off = false;
                 on = true;
             }
             else if (on && Input.GetButtonDown("Flashlight_toggle"))
             {
                 Light.SetActive(false);
-                //turnOff.Play(); 
+                turnOff.Play(); 
                 off = true;
                 on = false;
             }
