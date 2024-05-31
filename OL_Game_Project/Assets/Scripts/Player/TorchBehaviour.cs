@@ -46,32 +46,34 @@ public class TorchBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (RenderTorch.enabled == true)
+        if (GameObject.Find("Player").GetComponent<PauseGame>().pauseMenuOFF)
         {
-            Crosshair.SetActive(false);
-            if (off && Input.GetButtonDown("Flashlight_toggle"))
+            if (RenderTorch.enabled == true)
             {
-                Light.SetActive(true);
-                turnOn.Play(); 
-                off = false;
-                on = true;
+                Crosshair.SetActive(false);
+                if (off && Input.GetButtonDown("Flashlight_toggle"))
+                {
+                    Light.SetActive(true);
+                    turnOn.Play(); 
+                    off = false;
+                    on = true;
+                }
+                else if (on && Input.GetButtonDown("Flashlight_toggle"))
+                {
+                    Light.SetActive(false);
+                    turnOff.Play(); 
+                    off = true;
+                    on = false;
+                }
             }
-            else if (on && Input.GetButtonDown("Flashlight_toggle"))
+            else
             {
+                Crosshair.SetActive(true);
                 Light.SetActive(false);
-                turnOff.Play(); 
                 off = true;
                 on = false;
             }
         }
-        else
-        {
-            Crosshair.SetActive(true);
-            Light.SetActive(false);
-            off = true;
-            on = false;
-        }
-
     }
 }
 

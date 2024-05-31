@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
 
     private float velocity = 0f;
     private float currentMovementSpeed = 0f;
+    private float sprintMovementSpeed = 0f;
     private Vector3 motionFrameStep;
     private CharacterController controller;
     private AudioSource aSrc;
@@ -111,6 +112,9 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         currentMovementSpeed = defaultSpeed;
+        sprintMovementSpeed = currentMovementSpeed * 2;
+        Debug.Log(currentMovementSpeed);
+        Debug.Log(sprintMovementSpeed);
     }
 
     /// <summary>
@@ -140,6 +144,19 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
             ApplyMovementTick();
+
+            if (controller.isGrounded)
+            { 
+                if (Input.GetButton("Sprint"))
+                {
+                   //Debug.Log("Holding it down");
+                    currentMovementSpeed = sprintMovementSpeed;
+                }
+                else
+                {
+                    currentMovementSpeed = defaultSpeed;
+                }
+            }
         }
         else
         {

@@ -53,21 +53,24 @@ public class Interaction : MonoBehaviour, ILoggable
             PickUpText.SetActive(true); //# Pickup text turns on
             //Log($"Text: {hitInfo.transform.gameObject.name}");
 
-            if (Input.GetButtonDown("Interaction") == true)
+            if (GameObject.Find("Player").GetComponent<PauseGame>().pauseMenuOFF) //# If in PauseMenu you cannot interacte with things
             {
-                if (engagedInteraction == null)
+                if (Input.GetButtonDown("Interaction") == true)
                 {
-                    if (hitInfo.transform.TryGetComponent(out IInteractable target) == true)
+                    if (engagedInteraction == null)
                     {
-                        if (target.OnInteract(out engagedInteraction) == true)
+                        if (hitInfo.transform.TryGetComponent(out IInteractable target) == true)
                         {
-                            Log($"Interacted with {hitInfo.transform.gameObject.name}.");
+                            if (target.OnInteract(out engagedInteraction) == true)
+                            {
+                                Log($"Interacted with {hitInfo.transform.gameObject.name}.");
+                            }
                         }
                     }
-                }
-                else if(engagedInteraction.OnDisengageInteraction() == true)
-                {
-                    engagedInteraction = null;
+                    else if(engagedInteraction.OnDisengageInteraction() == true)
+                    {
+                        engagedInteraction = null;
+                    }
                 }
             }
         }

@@ -9,14 +9,14 @@ public class PickUpInteraction : MonoBehaviour
 
     private Renderer RenderTorch;
 
-    private GameObject PickUpTorch;
+    private GameObject TorchOnPlayer;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        PickUpTorch = GameObject.FindGameObjectWithTag("PickUp_Torch");
-        RenderTorch = PickUpTorch.GetComponent<Renderer>();
+        TorchOnPlayer = GameObject.FindGameObjectWithTag("TorchOnPlayer");
+        RenderTorch = TorchOnPlayer.GetComponent<Renderer>();
     }
 
 
