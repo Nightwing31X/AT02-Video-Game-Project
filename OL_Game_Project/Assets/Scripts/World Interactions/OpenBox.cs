@@ -11,6 +11,9 @@ public class OpenBox : MonoBehaviour
 
     public bool isOpen;
 
+    public AudioSource Unlocked;
+    public AudioSource Locked;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +25,9 @@ public class OpenBox : MonoBehaviour
 
     IEnumerator Delay()
     {
+        Locked.Play();
         KeyMissingText.SetActive(true);
-        yield return new WaitForSeconds(1.5f); //# Waits 3 seconds (thats how long the audio is)
+        yield return new WaitForSeconds(1f); //# Waits 3 seconds (thats how long the audio is)
         KeyMissingText.SetActive(false);
     }
 
@@ -32,6 +36,7 @@ public class OpenBox : MonoBehaviour
     {
         if (keyOBJNeeded.activeInHierarchy == true && Input.GetButtonDown("Interaction"))
         {
+            Unlocked.Play();
             keyOBJNeeded.SetActive(false);
             boxANIM.SetBool("open", true);
             KeyMissingText.SetActive(false);
