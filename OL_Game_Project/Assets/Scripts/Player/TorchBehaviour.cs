@@ -11,7 +11,7 @@ public class TorchBehaviour : MonoBehaviour
 
     public GameObject Torch; //# Rereference to the Model
     public GameObject Light; //# Rereference to the Light Source
-    public GameObject Crosshair; //# Rereference to the Crosshair Image
+    //public GameObject Crosshair; //# Rereference to the Crosshair Image
 
 
     public AudioSource turnOn;
@@ -33,13 +33,13 @@ public class TorchBehaviour : MonoBehaviour
         
         if (RenderTorch.enabled == true)
         {
-            Crosshair.SetActive(false);
+            //Crosshair.SetActive(false);
             off = true;
             Light.SetActive(false);
         }
         else
         {
-            Crosshair.SetActive(true);
+            //Crosshair.SetActive(true);
         }
     }
 
@@ -50,7 +50,7 @@ public class TorchBehaviour : MonoBehaviour
         {
             if (RenderTorch.enabled == true)
             {
-                Crosshair.SetActive(false);
+                //Crosshair.SetActive(false);
                 if (off && Input.GetButtonDown("Flashlight_toggle"))
                 {
                     Light.SetActive(true);
@@ -68,7 +68,7 @@ public class TorchBehaviour : MonoBehaviour
             }
             else
             {
-                Crosshair.SetActive(true);
+                //Crosshair.SetActive(true);
                 Light.SetActive(false);
                 off = true;
                 on = false;

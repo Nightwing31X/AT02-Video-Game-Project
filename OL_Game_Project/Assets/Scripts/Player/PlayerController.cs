@@ -113,8 +113,8 @@ public class PlayerController : MonoBehaviour
     {
         currentMovementSpeed = defaultSpeed;
         sprintMovementSpeed = currentMovementSpeed * 2;
-        Debug.Log(currentMovementSpeed);
-        Debug.Log(sprintMovementSpeed);
+        //Debug.Log(currentMovementSpeed);
+        //Debug.Log(sprintMovementSpeed);
     }
 
     /// <summary>

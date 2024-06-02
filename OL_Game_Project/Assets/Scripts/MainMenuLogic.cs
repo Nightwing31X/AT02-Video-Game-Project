@@ -7,7 +7,8 @@ public class MainMenuLogic : MonoBehaviour
 {
     private GameObject MainMenu;
     private GameObject OptionsMenu;
-    private GameObject Loading;
+    private GameObject ControlsMenu;
+    //private GameObject Loading;
 
     public AudioSource ButtonSound;
 
@@ -17,11 +18,13 @@ public class MainMenuLogic : MonoBehaviour
     {
         MainMenu = GameObject.Find("MainMenuCanvas");
         OptionsMenu = GameObject.Find("OptionsCanvas");
-        Loading = GameObject.Find("LoadingCanvas");
+        ControlsMenu = GameObject.Find("ControlsCanvas");
+        //Loading = GameObject.Find("LoadingCanvas");
 
         MainMenu.GetComponent<Canvas>().enabled = true;
         OptionsMenu.GetComponent<Canvas>().enabled = false;
-        Loading.GetComponent<Canvas>().enabled = false;
+        ControlsMenu.GetComponent<Canvas>().enabled = false;
+        //Loading.GetComponent<Canvas>().enabled = false;
     }
 
     //public void StartButton()
@@ -32,11 +35,19 @@ public class MainMenuLogic : MonoBehaviour
     //    SceneManager.LoadScene("PlayGround");
     //}
 
+
     public void OptionsButton()
     {
         ButtonSound.Play();
         MainMenu.GetComponent<Canvas>().enabled = false;
         OptionsMenu.GetComponent<Canvas>().enabled = true;
+    }
+
+    public void ControlsButton()
+    {
+        ButtonSound.Play();
+        MainMenu.GetComponent<Canvas>().enabled = false;
+        ControlsMenu.GetComponent<Canvas>().enabled = true;
     }
 
     public void ExitGameButton()
@@ -51,5 +62,6 @@ public class MainMenuLogic : MonoBehaviour
         ButtonSound.Play();
         MainMenu.GetComponent<Canvas>().enabled = true;
         OptionsMenu.GetComponent<Canvas>().enabled = false;
+        ControlsMenu.GetComponent<Canvas>().enabled = false;
     }
 }

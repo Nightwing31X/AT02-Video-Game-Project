@@ -11,6 +11,8 @@ public class PickUpInteraction : MonoBehaviour
 
     private GameObject TorchOnPlayer;
 
+    public GameObject keyInINV;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +25,7 @@ public class PickUpInteraction : MonoBehaviour
     IEnumerator Delay() 
     {
         this.gameObject.transform.position = new Vector3(0.0f, 50.0f, 0.0f); //# Moves the object intertacted with upwards (to hide & allow audio to play)
-        yield return new WaitForSeconds(3); //# Waits 3 seconds (thats how long the audio is)
+        yield return new WaitForSeconds(5); //# Waits 3 seconds (thats how long the audio is)
         this.gameObject.SetActive(false); //# Then deactives the object
     }
 
@@ -33,7 +35,14 @@ public class PickUpInteraction : MonoBehaviour
         RenderTorch.enabled = true;
         StartCoroutine(Delay());
     }
-  
+
+    public void PickUP_Key()
+    {
+        Debug.Log("Picked up key...");
+        keyInINV.SetActive(true);
+        StartCoroutine(Delay());
+    }
+
     void Update()
     {
 

@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\OL_Game_Project",
+    "\\OL_Game_Project\\Assets",
+    "\\OL_Game_Project\\Assets\\Scripts",
+    "\\OL_Game_Project\\Assets\\Scripts\\Player",
+    "\\OL_Game_Project\\Assets\\Scripts\\World Interactions"
   ],
-  "SelectedNode": "\\D:\\Files\\Github\\AT02-Video-Game-Project",
+  "SelectedNode": "\\OL_Game_Project\\Assets\\Scripts\\Player\\PlayerController.cs",
   "PreviewInSolutionExplorer": false
 }

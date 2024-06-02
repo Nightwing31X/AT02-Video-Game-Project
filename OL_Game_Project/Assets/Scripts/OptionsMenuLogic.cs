@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class OptionsMenuLogic : MonoBehaviour
 {
@@ -14,6 +15,13 @@ public class OptionsMenuLogic : MonoBehaviour
     {
         PauseMenu = GameObject.Find("PauseMenuCanvas");
         OptionsMenu = GameObject.Find("OptionsMenuCanvas");
+
+        if (PauseMenu == null || OptionsMenu == null)
+        {
+            //Debug.Log("Make sure that all the children under MenuPaused (itself doesn't need to be on) are turned on before playing.");
+            //Debug.Log(PauseMenu);
+            //Debug.Log(OptionsMenu);
+        }
     }
 
     public void SetVolume(float volume)
@@ -36,7 +44,7 @@ public class OptionsMenuLogic : MonoBehaviour
     {
         PauseMenu.SetActive(true);
         OptionsMenu.SetActive(false);
-        //Debug.Log("Button Clicked...Return");
+        Debug.Log("Button Clicked...Return");
     }
 
 }

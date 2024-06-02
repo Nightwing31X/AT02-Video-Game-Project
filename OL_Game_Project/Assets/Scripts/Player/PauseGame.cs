@@ -27,12 +27,11 @@ public class PauseGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Make sure that MenuPaused and all the children under are turned on before playing.");
 
         Time.timeScale = 1;
         PostProcessVolume ppVolume = blurCamera.GetComponent<PostProcessVolume>();
         ppVolume.enabled = false;
-        Menu.SetActive(false);
+        Menu.SetActive(true);
         PauseMenu.SetActive(false);
         OptionsMenu.SetActive(false);
         pauseMenuOFF = true;
@@ -51,7 +50,7 @@ public class PauseGame : MonoBehaviour
             Time.timeScale = 0;
             script.LookEnabled = false;
             ppVolume.enabled = true;
-            Menu.SetActive(true);
+            //Menu.SetActive(true);
             PauseMenu.SetActive(true);
             PlayerHUD.SetActive(false);
             pauseMenuOFF = false;
@@ -65,7 +64,7 @@ public class PauseGame : MonoBehaviour
             Time.timeScale = 1;
             script.LookEnabled = true;
             ppVolume.enabled = false;
-            Menu.SetActive(false);
+            //Menu.SetActive(false);
             PauseMenu.SetActive(false);
             OptionsMenu.SetActive(false);
             PlayerHUD.SetActive(true);
@@ -86,7 +85,7 @@ public class PauseGame : MonoBehaviour
         script.LookEnabled = true;
         PostProcessVolume ppVolume = blurCamera.GetComponent<PostProcessVolume>();
         ppVolume.enabled = false;
-        Menu.SetActive(false);
+        //Menu.SetActive(false);
         PauseMenu.SetActive(false);
         PlayerHUD.SetActive(true);
         pauseMenuOFF = true;
