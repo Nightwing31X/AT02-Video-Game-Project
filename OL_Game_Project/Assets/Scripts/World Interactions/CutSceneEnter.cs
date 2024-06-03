@@ -10,9 +10,14 @@ public class CutSceneEnter : MonoBehaviour
     public GameObject cutsceneCAM;
 
 
-//    void OnTriggerEnter(Collider other)
+    public PlayerController cutsceneCHECK;
+    public int durationTIME; //# Can set how long the cutscene is
+
+    //    void OnTriggerEnter(Collider other)
     public void cutsceneStart()
     {
+        cutsceneCHECK.inCutscene = true;
+        Debug.Log(durationTIME);
         this.gameObject.GetComponent<BoxCollider>().enabled = false;
         thePlayer.GetComponentInChildren<PlayerController>().enabled = false;
         thePlayer.GetComponentInChildren<TorchBehaviour>().enabled = false;
@@ -25,13 +30,14 @@ public class CutSceneEnter : MonoBehaviour
 
     IEnumerator FinishCut()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(durationTIME);
         playerCAM.SetActive(true);
         playerHUD.SetActive(true);
         thePlayer.GetComponentInChildren<PlayerController>().enabled = true;
         thePlayer.GetComponentInChildren<TorchBehaviour>().enabled = true;
         thePlayer.GetComponentInChildren<Footsteps>().enabled = true;
         cutsceneCAM.SetActive(false);
+        cutsceneCHECK.inCutscene = false;
     }
 
 

@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private AudioSource aSrc;
 
+    public bool inCutscene; //# Checks if player is in a cutscene 
+
     /// <summary>
     /// Enables/disables the ability to move the player character by device input.
     /// </summary>

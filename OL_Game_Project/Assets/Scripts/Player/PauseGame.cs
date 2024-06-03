@@ -5,18 +5,19 @@ using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 
 
-public class PauseGame : MonoBehaviour
-{
-    public GameObject Menu;
+public class PauseGame : MonoBehaviour { 
+
+    public GameObject MenuParent;
     public GameObject PauseMenu;
     public GameObject OptionsMenu;
-    public GameObject resume;
-    public GameObject options;
-    public GameObject quit;
+    public GameObject resumeBTN;
+    public GameObject optionsBTN;
+    public GameObject exitBTN;
 
-    [SerializeField] private GameObject PlayerHUD;
+    public GameObject PlayerHUD;
+    public PlayerController cutsceneCHECK;
 
-    [SerializeField] private MouseLook script;  //# Lets me reference things from another C# file
+    public MouseLook mouselook;  //# Lets me reference things from another C# file
     public Camera blurCamera;
 
     public bool pauseMenuON;
@@ -27,11 +28,10 @@ public class PauseGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         Time.timeScale = 1;
         PostProcessVolume ppVolume = blurCamera.GetComponent<PostProcessVolume>();
         ppVolume.enabled = false;
-        Menu.SetActive(true);
+        MenuParent.SetActive(true);
         PauseMenu.SetActive(false);
         OptionsMenu.SetActive(false);
         pauseMenuOFF = true;
@@ -45,12 +45,13 @@ public class PauseGame : MonoBehaviour
         //{
             //Debug.Log("TRUE...");
         PostProcessVolume ppVolume = blurCamera.GetComponent<PostProcessVolume>();
+        Debug.Log(cutsceneCHECK.inCutscene);
         if (pauseMenuOFF && Input.GetButtonDown("Pause"))
         {
             Time.timeScale = 0;
-            script.LookEnabled = false;
+            mouselook.LookEnabled = false;
             ppVolume.enabled = true;
-            //Menu.SetActive(true);
+            //MenuParent.SetActive(true);
             PauseMenu.SetActive(true);
             PlayerHUD.SetActive(false);
             pauseMenuOFF = false;
@@ -61,12 +62,63 @@ public class PauseGame : MonoBehaviour
         }
         else if (pauseMenuON && Input.GetButtonDown("Pause"))
         {
+            if (cutsceneCHECK.inCutscene)
+            {
+                Time.timeScale = 1;
+                mouselook.LookEnabled = true;
+                ppVolume.enabled = false;
+                //MenuParent.SetActive(false);
+                PauseMenu.SetActive(false);
+                OptionsMenu.SetActive(false);
+                pauseMenuOFF = true;
+                pauseMenuON = false;
+
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+            else 
+            {
+                Time.timeScale = 1;
+                mouselook.LookEnabled = true;
+                ppVolume.enabled = false;
+                //MenuParent.SetActive(false);
+                PauseMenu.SetActive(false);
+                OptionsMenu.SetActive(false);
+                PlayerHUD.SetActive(true);
+                pauseMenuOFF = true;
+                pauseMenuON = false;
+
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+        }
+        //}
+    }
+
+    public void Resume()
+    {
+        if (cutsceneCHECK.inCutscene)
+        {
             Time.timeScale = 1;
-            script.LookEnabled = true;
+            mouselook.LookEnabled = true;
+            PostProcessVolume ppVolume = blurCamera.GetComponent<PostProcessVolume>();
             ppVolume.enabled = false;
-            //Menu.SetActive(false);
+            //MenuParent.SetActive(false);
             PauseMenu.SetActive(false);
-            OptionsMenu.SetActive(false);
+            pauseMenuOFF = true;
+            pauseMenuON = false;
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            mouselook.LookEnabled = true;
+            PostProcessVolume ppVolume = blurCamera.GetComponent<PostProcessVolume>();
+            ppVolume.enabled = false;
+            //MenuParent.SetActive(false);
+            PauseMenu.SetActive(false);
             PlayerHUD.SetActive(true);
             pauseMenuOFF = true;
             pauseMenuON = false;
@@ -74,25 +126,6 @@ public class PauseGame : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-        //}
-
-
-    }
-
-    public void Resume()
-    {
-        Time.timeScale = 1;
-        script.LookEnabled = true;
-        PostProcessVolume ppVolume = blurCamera.GetComponent<PostProcessVolume>();
-        ppVolume.enabled = false;
-        //Menu.SetActive(false);
-        PauseMenu.SetActive(false);
-        PlayerHUD.SetActive(true);
-        pauseMenuOFF = true;
-        pauseMenuON = false;
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     public void Options()

@@ -6450,6 +6450,7 @@ MonoBehaviour:
   jumpClips:
   - {fileID: 8300000, guid: e29f45eb28dc9d840afd380ec83ae281, type: 3}
   - {fileID: 8300000, guid: 3e95a493fb8b17941914c8e355784642, type: 3}
+  inCutscene: 0
 --- !u!143 &1525924398
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6572,14 +6573,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd2f6a25585a7d3479b5248282cc9efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Menu: {fileID: 1822743245}
+  MenuParent: {fileID: 1822743245}
   PauseMenu: {fileID: 2057148716}
   OptionsMenu: {fileID: 1017966650}
-  resume: {fileID: 107940831}
-  options: {fileID: 784134033}
-  quit: {fileID: 1016084241}
+  resumeBTN: {fileID: 107940831}
+  optionsBTN: {fileID: 784134033}
+  exitBTN: {fileID: 1016084241}
   PlayerHUD: {fileID: 489064409}
-  script: {fileID: 634370002}
+  cutsceneCHECK: {fileID: 1525924397}
+  mouselook: {fileID: 634370002}
   blurCamera: {fileID: 147043997}
   pauseMenuON: 0
   pauseMenuOFF: 0
@@ -7652,6 +7654,8 @@ MonoBehaviour:
   playerHUD: {fileID: 489064409}
   playerCAM: {fileID: 634369998}
   cutsceneCAM: {fileID: 793306846}
+  cutsceneCHECK: {fileID: 1525924397}
+  durationTIME: 4
 --- !u!1 &1789224184
 GameObject:
   m_ObjectHideFlags: 0
@@ -7994,7 +7998,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -65, y: -10}
+  m_AnchoredPosition: {x: -50, y: -10}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1978301007
@@ -8773,6 +8777,8 @@ MonoBehaviour:
   playerHUD: {fileID: 489064409}
   playerCAM: {fileID: 634369998}
   cutsceneCAM: {fileID: 793306846}
+  cutsceneCHECK: {fileID: 1525924397}
+  durationTIME: 4
 --- !u!65 &2109416378
 BoxCollider:
   m_ObjectHideFlags: 0
