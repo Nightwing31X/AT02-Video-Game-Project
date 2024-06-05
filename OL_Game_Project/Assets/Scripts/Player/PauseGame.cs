@@ -45,7 +45,7 @@ public class PauseGame : MonoBehaviour {
         //{
             //Debug.Log("TRUE...");
         PostProcessVolume ppVolume = blurCamera.GetComponent<PostProcessVolume>();
-        Debug.Log(cutsceneCHECK.inCutscene);
+        //Debug.Log(cutsceneCHECK.inCutscene);
         if (pauseMenuOFF && Input.GetButtonDown("Pause"))
         {
             Time.timeScale = 0;

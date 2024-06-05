@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 #region AUTHOR & COPYRIGHT DETAILS
 /// Original Author: Joshua Ferguson
@@ -37,11 +40,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip[] jumpClips;
 
     private float velocity = 0f;
-    private float currentMovementSpeed = 0f;
-    private float sprintMovementSpeed = 0f;
+    private float currentMovementSpeed = 0f; 
     private Vector3 motionFrameStep;
     private CharacterController controller;
     private AudioSource aSrc;
+
+    private float sprintMovementSpeed = 0f; //# Reference for the speed when sprinting
+    public Image staminaBar;
+    [SerializeField] private float stamina, maxStamina = 100;
+    [SerializeField] private float staminaCost = 20;
+    [SerializeField] private float chargeRate;
+    private Coroutine recharge;
+
 
     public bool inCutscene; //# Checks if player is in a cutscene 
 
@@ -151,18 +161,59 @@ public class PlayerController : MonoBehaviour
             { 
                 if (Input.GetButton("Sprint"))
                 {
-                   //Debug.Log("Holding it down");
-                    currentMovementSpeed = sprintMovementSpeed;
+                    Debug.Log(currentMovementSpeed);
+                    if (stamina > 0)
+                    {
+                        currentMovementSpeed = sprintMovementSpeed;
+
+                        stamina -= staminaCost * Time.deltaTime;
+                        if (stamina < 0)
+                        {
+                            stamina = 0;
+                        }
+                        staminaBar.fillAmount = stamina / maxStamina;
+                    }
+                    else
+                    {
+                        currentMovementSpeed = defaultSpeed;
+                        Debug.Log(currentMovementSpeed);
+                    }
+
+                    if (recharge != null)
+                    {
+                        StopCoroutine(recharge);
+                    }
+                    recharge = StartCoroutine(RechargeStamina());
                 }
                 else
                 {
                     currentMovementSpeed = defaultSpeed;
+                    Debug.Log(currentMovementSpeed);
                 }
             }
         }
         else
         {
             ApplyMovementTick(true);
+        }
+    }
+
+
+    private IEnumerator RechargeStamina()
+    {
+        yield return new WaitForSeconds(1f);
+
+
+        while (stamina < maxStamina)
+        {
+            //stamina += chargeRate / 10f;
+            stamina += chargeRate;
+            if (stamina > maxStamina)
+            {
+                stamina = maxStamina;
+            }
+            staminaBar.fillAmount = stamina / maxStamina;
+            yield return new WaitForSeconds(.1f);
         }
     }
 
