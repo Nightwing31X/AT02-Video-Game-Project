@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour
             { 
                 if (Input.GetButton("Sprint"))
                 {
-                    Debug.Log(currentMovementSpeed);
+                    //Debug.Log(currentMovementSpeed);
                     if (stamina > 0)
                     {
                         currentMovementSpeed = sprintMovementSpeed;
@@ -176,7 +176,7 @@ public class PlayerController : MonoBehaviour
                     else
                     {
                         currentMovementSpeed = defaultSpeed;
-                        Debug.Log(currentMovementSpeed);
+                        //Debug.Log(currentMovementSpeed);
                     }
 
                     if (recharge != null)
@@ -188,7 +188,7 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     currentMovementSpeed = defaultSpeed;
-                    Debug.Log(currentMovementSpeed);
+                    //Debug.Log(currentMovementSpeed);
                 }
             }
         }
@@ -198,7 +198,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
+    //# Recharges the sprintBar - waits 1 second until it starts to recharge
     private IEnumerator RechargeStamina()
     {
         yield return new WaitForSeconds(1f);

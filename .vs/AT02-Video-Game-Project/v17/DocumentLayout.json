@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "D:\\Files\\Github\\AT02-Video-Game-Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\Player\\PauseGame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:OL_Game_Project\\Assets\\Scripts\\Player\\PauseGame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\World Interactions\\CutSceneEnter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:OL_Game_Project\\Assets\\Scripts\\World Interactions\\CutSceneEnter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\Player\\PlayerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:OL_Game_Project\\Assets\\Scripts\\Player\\PlayerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\Player\\PauseGame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:OL_Game_Project\\Assets\\Scripts\\Player\\PauseGame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\World Interactions\\NoteInteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:OL_Game_Project\\Assets\\Scripts\\World Interactions\\NoteInteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\Player\\PlayerController.cs",
               "RelativeDocumentMoniker": "OL_Game_Project\\Assets\\Scripts\\Player\\PlayerController.cs",
               "ToolTip": "D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\Player\\PlayerController.cs",
               "RelativeToolTip": "OL_Game_Project\\Assets\\Scripts\\Player\\PlayerController.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAAC0AAABCAAAA",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAAADMAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T15:14:43.974Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CutSceneEnter.cs",
-              "DocumentMoniker": "D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\World Interactions\\CutSceneEnter.cs",
-              "RelativeDocumentMoniker": "OL_Game_Project\\Assets\\Scripts\\World Interactions\\CutSceneEnter.cs",
-              "ToolTip": "D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\World Interactions\\CutSceneEnter.cs",
-              "RelativeToolTip": "OL_Game_Project\\Assets\\Scripts\\World Interactions\\CutSceneEnter.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T14:42:20.809Z",
+              "WhenOpened": "2024-06-06T19:50:15.643Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CutSceneEnter.cs",
+              "DocumentMoniker": "D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\World Interactions\\CutSceneEnter.cs",
+              "RelativeDocumentMoniker": "OL_Game_Project\\Assets\\Scripts\\World Interactions\\CutSceneEnter.cs",
+              "ToolTip": "D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\World Interactions\\CutSceneEnter.cs",
+              "RelativeToolTip": "OL_Game_Project\\Assets\\Scripts\\World Interactions\\CutSceneEnter.cs",
+              "ViewState": "AQIAAGMAAAAAAAAAAAAAAHQAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T19:21:00.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "PauseGame.cs",
               "DocumentMoniker": "D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\Player\\PauseGame.cs",
               "RelativeDocumentMoniker": "OL_Game_Project\\Assets\\Scripts\\Player\\PauseGame.cs",
               "ToolTip": "D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\Player\\PauseGame.cs",
               "RelativeToolTip": "OL_Game_Project\\Assets\\Scripts\\Player\\PauseGame.cs",
-              "ViewState": "AQIAAEIAAAAAAAAAAAAUwGQAAAAJAAAA",
+              "ViewState": "AQIAAGkAAAAAAAAAAAAAABMAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-03T14:42:17.388Z",
+              "WhenOpened": "2024-06-06T19:20:30.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NoteInteraction.cs",
+              "DocumentMoniker": "D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\World Interactions\\NoteInteraction.cs",
+              "RelativeDocumentMoniker": "OL_Game_Project\\Assets\\Scripts\\World Interactions\\NoteInteraction.cs",
+              "ToolTip": "D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\World Interactions\\NoteInteraction.cs",
+              "RelativeToolTip": "OL_Game_Project\\Assets\\Scripts\\World Interactions\\NoteInteraction.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAACMAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T19:18:45.588Z",
               "EditorCaption": ""
             }
           ]

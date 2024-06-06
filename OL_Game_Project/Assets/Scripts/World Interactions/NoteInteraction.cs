@@ -33,6 +33,7 @@ public class NoteInteraction : Interactable
     [Tooltip("Defines the functions that will be executed upon an interaction event.")]
     [SerializeField] private UnityEvent interactionEvents;
 
+    //[SerializeField] public bool readingActive = false;
     private bool readingActive = false;
     private bool eventsFired = false;
 

@@ -15,7 +15,9 @@ public class PauseGame : MonoBehaviour {
     public GameObject exitBTN;
 
     public GameObject PlayerHUD;
+
     public PlayerController cutsceneCHECK;
+    //public NoteInteraction readingNoteCHECK;
 
     public MouseLook mouselook;  //# Lets me reference things from another C# file
     public Camera blurCamera;
