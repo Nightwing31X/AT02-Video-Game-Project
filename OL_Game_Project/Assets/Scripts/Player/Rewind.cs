@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Rewind : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class Rewind : MonoBehaviour
 
     public GameObject boxSTART;
     public GameObject boxEND;
+
+    public GameObject rewindOBJ;
 
     // The maximum duration of time that can be rewind
     public float maxRewindDuration = 50f;
@@ -49,9 +53,11 @@ public class Rewind : MonoBehaviour
         //{
             //StopRewind();
         //}
+    }
 
-
-
+    private void Awake()
+    {
+        rewindOBJ.SetActive(false);
     }
 
     private void FixedUpdate()
@@ -120,6 +126,7 @@ public class Rewind : MonoBehaviour
     public void StartRewind()
     {
         // Activate time rewind
+        rewindOBJ.SetActive(true); 
         boxEND.GetComponent<BoxCollider>().enabled = true;
         isRewinding = true;
         mouselook.LookEnabled = false;
@@ -133,6 +140,7 @@ public class Rewind : MonoBehaviour
     public void StopRewind()
     {
         // Deactive time rewind
+        rewindOBJ.SetActive(false);
         isRewinding = false;
         mouselook.LookEnabled = true;
 
