@@ -3,35 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 
 public class AysncLoader : MonoBehaviour
-{
-    [SerializeField] private GameObject loadingScreen;
-    [SerializeField] private GameObject mainMenu;
+{  
+    public GameObject loadingScreen;
+    public Image loadingBarFill;
+    public TMP_Text progressText;
 
-    [SerializeField] private Slider loadingSlider;
 
-
-    public void LoadLevelButton(string levelToLoad)
+    void Awake()
     {
-        mainMenu.SetActive(false);
-        loadingScreen.SetActive(true);
-
-        StartCoroutine(LoadLevelASync(levelToLoad));
-        Debug.Log("Progress....");
+        loadingScreen.SetActive(false);
     }
 
-    IEnumerator LoadLevelASync(string levelToLoad)
+    public void LoadScene(string sceneTitle)
     {
-        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(levelToLoad);
+        StartCoroutine(LoadSyncAsync(sceneTitle));
+    }
 
-        while (!loadOperation.isDone)
+    IEnumerator LoadSyncAsync(string sceneTitle)
+    {
+
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneTitle);
+
+        loadingScreen.SetActive(true);
+
+
+        while (!operation.isDone)
         {
-            float progressValue = Mathf.Clamp01(loadOperation.progress / 0.9f);
-            loadingSlider.value = progressValue;
+            float progressValue = Mathf.Clamp01(operation.progress / 0.9f);
+
+            loadingBarFill.fillAmount = progressValue;
+            progressText.text = progressValue * 100f + "%";
+
             yield return null;
         }
-
     }
 }

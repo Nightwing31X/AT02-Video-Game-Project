@@ -17,7 +17,7 @@ public class CutSceneEnter : MonoBehaviour
 
 
     [SerializeField] private float lowtime, maxtime = 100;
-    [SerializeField] private float seconds = 25;
+    [SerializeField] private float seconds = 20;
     [SerializeField] private float howlong;
     public Image skipBar;
     private Coroutine recharge;
@@ -54,14 +54,6 @@ public class CutSceneEnter : MonoBehaviour
 
     private void SkipCutscene()
     {
-        Debug.Log("Skipped cutscene...");
-        //playerCAM.SetActive(true);
-        //playerHUD.SetActive(true);
-        //thePlayer.GetComponentInChildren<PlayerController>().enabled = true;
-        //thePlayer.GetComponentInChildren<TorchBehaviour>().enabled = true;
-        //thePlayer.GetComponentInChildren<Footsteps>().enabled = true;
-        //cutsceneCAM.SetActive(false);
-        //cutsceneCHECK.inCutscene = false;
 
         if (lowtime > 0)
         {
@@ -69,6 +61,17 @@ public class CutSceneEnter : MonoBehaviour
             if (lowtime < 0)
             {
                 lowtime = 0;
+            }
+            if (skipBar.fillAmount == 0)
+            {
+                Debug.Log("Skipped cutscene...");
+                playerCAM.SetActive(true);
+                playerHUD.SetActive(true);
+                thePlayer.GetComponentInChildren<PlayerController>().enabled = true;
+                thePlayer.GetComponentInChildren<TorchBehaviour>().enabled = true;
+                thePlayer.GetComponentInChildren<Footsteps>().enabled = true;
+                cutsceneCAM.SetActive(false);
+                cutsceneCHECK.inCutscene = false;
             }
             skipBar.fillAmount = lowtime / maxtime;
         }
@@ -91,17 +94,24 @@ public class CutSceneEnter : MonoBehaviour
     private IEnumerator Recharge()
     {
         yield return new WaitForSeconds(1f);
+        //stamina += chargeRate / 10f;
 
-        while (lowtime < maxtime)
-        {
-            lowtime += howlong;
-            if (lowtime > maxtime)
-            {
-                lowtime = maxtime;
-            }
-            skipBar.fillAmount = lowtime / maxtime;
-            yield return new WaitForSeconds(.1f);
-        }
+        lowtime = howlong;
+        skipBar.fillAmount = maxtime;
+
+
+        //while (lowtime < maxtime)
+        //{
+
+        //    lowtime += howlong / 10f;
+        //    //lowtime += howlong;
+        //    if (lowtime > maxtime)
+        //    {
+        //        lowtime = maxtime;
+        //    }
+        //    skipBar.fillAmount = lowtime / maxtime;
+        //    yield return new WaitForSeconds(.1f);
+        //}
     }
 
 
@@ -115,16 +125,11 @@ public class CutSceneEnter : MonoBehaviour
     {
         //if (cutsceneCHECK.inCutscene && Input.GetButton("SkipCutscene"))
         //{
-        //if (cutsceneCHECK.inCutscene && Input.GetButton("SkipCutscene"))
-        if (Input.GetButton("SkipCutscene"))
+        if (cutsceneCHECK.inCutscene && Input.GetButton("SkipCutscene"))
         {
             SkipCutscene();
+            Debug.Log("Skip Active...");
         }
         //}
     }
-
-
-
-
-
 }

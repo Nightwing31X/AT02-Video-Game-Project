@@ -1365,7 +1365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &307617798
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9105,8 +9105,8 @@ MonoBehaviour:
   durationTIME: 4
   lowtime: 100
   maxtime: 100
-  seconds: 20
-  howlong: 1
+  seconds: 100
+  howlong: 100
   skipBar: {fileID: 1359122443}
 --- !u!1 &1789224184
 GameObject:
@@ -10338,8 +10338,8 @@ MonoBehaviour:
   durationTIME: 4
   lowtime: 100
   maxtime: 100
-  seconds: 20
-  howlong: 1
+  seconds: 100
+  howlong: 100
   skipBar: {fileID: 1359122443}
 --- !u!65 &2109416378
 BoxCollider:
@@ -10440,7 +10440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
-  oneShot: 1
+  oneShot: 0
   triggerEvents:
     m_PersistentCalls:
       m_Calls:
