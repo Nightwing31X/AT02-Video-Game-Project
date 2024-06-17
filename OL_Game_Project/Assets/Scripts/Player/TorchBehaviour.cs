@@ -20,6 +20,12 @@ public class TorchBehaviour : MonoBehaviour
     private bool on;
     private bool off;
 
+    public float TorchDuration;
+    public float charge;
+    private float newcharge;
+
+
+
 
     void Awake()
     {
@@ -48,33 +54,67 @@ public class TorchBehaviour : MonoBehaviour
     {
         if (GameObject.Find("Player").GetComponent<PauseGame>().pauseMenuOFF)
         {
-            if (RenderTorch.enabled == true)
+            if (charge > 0)
             {
-                //Crosshair.SetActive(false);
-                if (off && Input.GetButtonDown("Flashlight_toggle"))
+                if (RenderTorch.enabled == true)
                 {
-                    Light.SetActive(true);
-                    turnOn.Play(); 
-                    off = false;
-                    on = true;
+                    //Crosshair.SetActive(false);
+                    if (off && Input.GetButtonDown("Flashlight_toggle"))
+                    {
+                        Light.SetActive(true);
+                        turnOn.Play(); 
+                        off = false;
+                        on = true;
+                    }
+                    else if (on && Input.GetButtonDown("Flashlight_toggle"))
+                    {
+                        Light.SetActive(false);
+                        turnOff.Play(); 
+                        off = true;
+                        on = false;
+                    }
                 }
-                else if (on && Input.GetButtonDown("Flashlight_toggle"))
+                else
                 {
+                    //Crosshair.SetActive(true);
                     Light.SetActive(false);
-                    turnOff.Play(); 
                     off = true;
                     on = false;
                 }
             }
+        }
+
+        if (on && charge > 0)
+        {
+            if (TorchDuration > 0)
+            {
+                TorchDuration -= Time.deltaTime;
+                updateTimer(TorchDuration);
+            }
             else
             {
-                //Crosshair.SetActive(true);
+                Debug.Log("Time is UP!");
+                TorchDuration = 5;
                 Light.SetActive(false);
+                turnOff.Play();
                 off = true;
                 on = false;
+                newcharge = charge - 1;
+                charge = newcharge;
             }
         }
     }
+
+    void updateTimer(float currentTime)
+    {
+        currentTime += 1;
+
+        float minutes = Mathf.FloorToInt(currentTime / 60);
+        float seconds = Mathf.FloorToInt(currentTime % 60);
+
+        //TimerTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+
 }
 
 
