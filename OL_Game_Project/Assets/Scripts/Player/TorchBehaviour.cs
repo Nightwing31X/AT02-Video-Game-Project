@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+
 
 public class TorchBehaviour : MonoBehaviour
 {
@@ -20,10 +22,17 @@ public class TorchBehaviour : MonoBehaviour
     private bool on;
     private bool off;
 
-    public float TorchDuration;
-    public float charge;
-    private float newcharge;
+    [SerializeField] private float TorchDuration = 10;
+    [SerializeField] private float TorchDurationSET;
+    public float MAXcharge = 3;
+    public float currentcharge = 1;
+    private float previousCharge = -1;
 
+
+    public GameObject TorchArea;
+    public Image TorchDurationIMG;
+    public Image TorchOffIMG;
+    public RawImage[] BatteryIcons;
 
 
 
@@ -31,47 +40,67 @@ public class TorchBehaviour : MonoBehaviour
     {
         RenderTorch = Torch.GetComponent<Renderer>();
         RenderTorch.enabled = false;
+        TorchArea.SetActive(false);
+        TorchDurationSET = TorchDuration;
     }
 
+
     // Start is called before the first frame update
-    void Start()
-    {
-        
-        if (RenderTorch.enabled == true)
-        {
-            //Crosshair.SetActive(false);
-            off = true;
-            Light.SetActive(false);
-        }
-        else
-        {
-            //Crosshair.SetActive(true);
-        }
-    }
+    // void Start()
+    // {
+    //     if (charge >= 4)
+    //     {
+    //         Debug.Log("Charge can only be a max of 3...");
+    //         charge = 3;
+    //     }
+    //     else if (charge == 0)
+    //     {
+    //         Debug.Log("Charge has started at zero...");
+    //     }
+    // }
+
 
     // Update is called once per frame
     void Update()
     {
+        if (currentcharge != previousCharge)
+        {
+            if (RenderTorch.enabled == true)
+            {
+                TorchArea.SetActive(true);
+                for (int i = 0; i < BatteryIcons.Length; i++)
+                {
+                    Debug.Log(i < currentcharge);
+                    BatteryIcons[i].GetComponent<RawImage>().enabled = (i < currentcharge);
+                }
+                previousCharge = currentcharge;
+            }
+        }
+
         if (GameObject.Find("Player").GetComponent<PauseGame>().pauseMenuOFF)
         {
-            if (charge > 0)
+            if (currentcharge > 0)
             {
                 if (RenderTorch.enabled == true)
                 {
                     //Crosshair.SetActive(false);
+                    
                     if (off && Input.GetButtonDown("Flashlight_toggle"))
                     {
                         Light.SetActive(true);
-                        turnOn.Play(); 
+                        turnOn.Play();
                         off = false;
                         on = true;
+                        // TorchDurationIMG.enabled = true;
+                        TorchOffIMG.enabled = false;
                     }
                     else if (on && Input.GetButtonDown("Flashlight_toggle"))
                     {
                         Light.SetActive(false);
-                        turnOff.Play(); 
+                        turnOff.Play();
                         off = true;
                         on = false;
+                        TorchOffIMG.enabled = true;
                     }
                 }
                 else
@@ -84,27 +113,34 @@ public class TorchBehaviour : MonoBehaviour
             }
         }
 
-        if (on && charge > 0)
+        if (on && currentcharge > 0)
         {
             if (TorchDuration > 0)
             {
                 TorchDuration -= Time.deltaTime;
+                TorchDurationIMG.fillAmount = TorchDuration/TorchDurationSET;
                 updateTimer(TorchDuration);
+
             }
             else
             {
                 Debug.Log("Time is UP!");
-                TorchDuration = 5;
+                TorchDuration = TorchDurationSET;
+                TorchOffIMG.enabled = true;
                 Light.SetActive(false);
                 turnOff.Play();
                 off = true;
                 on = false;
-                newcharge = charge - 1;
-                charge = newcharge;
+                currentcharge = currentcharge - 1;
             }
         }
-    }
 
+        // if (currentcharge == 0)
+        // {
+
+        // }
+
+    }
     void updateTimer(float currentTime)
     {
         currentTime += 1;
@@ -115,7 +151,17 @@ public class TorchBehaviour : MonoBehaviour
         //TimerTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
+    public void Add_Battery()
+    {
+        if (currentcharge < MAXcharge)
+        {
+            //Debug.Log("Added the value");
+            currentcharge += 1;
+        }
+        Debug.Log(currentcharge);
+    }
 }
+
 
 
 

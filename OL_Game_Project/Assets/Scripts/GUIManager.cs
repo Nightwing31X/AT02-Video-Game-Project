@@ -24,7 +24,8 @@ public class GUIManager : MonoBehaviour, ILoggable
     [SerializeField] private bool debug;
     [Header("Note Overlay Properties")]
     [Tooltip("A reference to the root note overlay object.")]
-    [SerializeField] private GameObject noteOverlay;
+    //[SerializeField] private GameObject noteOverlay;
+    public GameObject noteOverlay;
     [Tooltip("A reference to the note text object.")]
     [SerializeField] private Text noteText;
     [Header("Author Card Properties")]

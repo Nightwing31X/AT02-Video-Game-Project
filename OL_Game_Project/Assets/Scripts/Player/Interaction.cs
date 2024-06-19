@@ -7,7 +7,7 @@ using UnityEngine;
 /// Last Updated: March, 2024
 /// 
 /// ###---**COPYRIGHT STATEMENT**---###
-/// © Copyright 2024 South Metropolitan TAFE. All rights reserved.
+/// ï¿½ Copyright 2024 South Metropolitan TAFE. All rights reserved.
 /// This code is provided to student's of South Metropolitan TAFE for educational purposes only.
 /// Unauthorized use, including but not limited to sharing, redistributing, copying, or commercialising
 /// this code or any part of it, without the express written permission of the authors, is strictly prohibited.

@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
+
 
 public class TimerScript : MonoBehaviour
 {
@@ -9,7 +9,13 @@ public class TimerScript : MonoBehaviour
 
     public Text TimerTxt;
     public GameObject background;
+    public GameObject LossObj;
+    public GameObject LossOverlay;
 
+    void Awake()
+    {
+        LossObj.SetActive(false);
+    }
     
     void Start()
     {
@@ -31,6 +37,8 @@ public class TimerScript : MonoBehaviour
                 Debug.Log("Time is UP!");
                 TimeLeft = 0;
                 TimerOn = false;
+                LossOverlay.SetActive(true);
+                LossObj.SetActive(true);
             }
         }
     }

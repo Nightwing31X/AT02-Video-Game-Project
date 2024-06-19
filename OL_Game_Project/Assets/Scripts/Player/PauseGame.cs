@@ -16,16 +16,18 @@ public class PauseGame : MonoBehaviour {
 
     public GameObject PlayerHUD;
 
-    public PlayerController cutsceneCHECK;
+    //public PlayerController cutsceneCHECK;
     //public NoteInteraction readingNoteCHECK;
 
     public MouseLook mouselook;  //# Lets me reference things from another C# file
     public Camera blurCamera;
 
+    public PlayerController playerControllerNOTE;
+    public GUIManager ManagerNote;
+
+
     public bool pauseMenuON;
     public bool pauseMenuOFF;
-
-   
 
     // Start is called before the first frame update
     void Start()
@@ -43,9 +45,9 @@ public class PauseGame : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        //if (GameObject.Find("clipboard_model").GetComponent<NoteInteraction>().readingActive == false)
+        //if (playerControllerNOTE.NoteCHECK == false)
         //{
-            //Debug.Log("TRUE...");
+        //Debug.Log("TRUE...");
         PostProcessVolume ppVolume = blurCamera.GetComponent<PostProcessVolume>();
         //Debug.Log(cutsceneCHECK.inCutscene);
         if (pauseMenuOFF && Input.GetButtonDown("Pause"))
@@ -61,73 +63,84 @@ public class PauseGame : MonoBehaviour {
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+                
+            if (playerControllerNOTE.NoteCHECK)
+            {
+                //Debug.Log(ManagerNote.noteOverlay);
+                ManagerNote.noteOverlay.SetActive(false);
+            }
         }
         else if (pauseMenuON && Input.GetButtonDown("Pause"))
         {
-            if (cutsceneCHECK.inCutscene)
-            {
-                Time.timeScale = 1;
-                mouselook.LookEnabled = true;
-                ppVolume.enabled = false;
-                //MenuParent.SetActive(false);
-                PauseMenu.SetActive(false);
-                OptionsMenu.SetActive(false);
-                pauseMenuOFF = true;
-                pauseMenuON = false;
+            //if (cutsceneCHECK.inCutscene)
+            //{
+            //Time.timeScale = 1;
+            //mouselook.LookEnabled = true;
+            //ppVolume.enabled = false;
+            ////MenuParent.SetActive(false);
+            //PauseMenu.SetActive(false);
+            //OptionsMenu.SetActive(false);
+            //pauseMenuOFF = true;
+            //pauseMenuON = false;
 
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
-            else 
-            {
-                Time.timeScale = 1;
-                mouselook.LookEnabled = true;
-                ppVolume.enabled = false;
-                //MenuParent.SetActive(false);
-                PauseMenu.SetActive(false);
-                OptionsMenu.SetActive(false);
-                PlayerHUD.SetActive(true);
-                pauseMenuOFF = true;
-                pauseMenuON = false;
-
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
-        }
-        //}
-    }
-
-    public void Resume()
-    {
-        if (cutsceneCHECK.inCutscene)
-        {
+            //Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.visible = false;
+            //}
+            //else 
+            //{
             Time.timeScale = 1;
             mouselook.LookEnabled = true;
-            PostProcessVolume ppVolume = blurCamera.GetComponent<PostProcessVolume>();
             ppVolume.enabled = false;
             //MenuParent.SetActive(false);
             PauseMenu.SetActive(false);
-            pauseMenuOFF = true;
-            pauseMenuON = false;
-
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-        else
-        {
-            Time.timeScale = 1;
-            mouselook.LookEnabled = true;
-            PostProcessVolume ppVolume = blurCamera.GetComponent<PostProcessVolume>();
-            ppVolume.enabled = false;
-            //MenuParent.SetActive(false);
-            PauseMenu.SetActive(false);
+            OptionsMenu.SetActive(false);
             PlayerHUD.SetActive(true);
             pauseMenuOFF = true;
             pauseMenuON = false;
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            if (playerControllerNOTE.NoteCHECK)
+            {
+                //Debug.Log(ManagerNote.noteOverlay);
+                ManagerNote.noteOverlay.SetActive(true);
+            }
+
+            //}
         }
+    }
+
+    public void Resume()
+    {
+        //if (cutsceneCHECK.inCutscene)
+        //{
+        //    Time.timeScale = 1;
+        //    mouselook.LookEnabled = true;
+        //    PostProcessVolume ppVolume = blurCamera.GetComponent<PostProcessVolume>();
+        //    ppVolume.enabled = false;
+        //    //MenuParent.SetActive(false);
+        //    PauseMenu.SetActive(false);
+        //    pauseMenuOFF = true;
+        //    pauseMenuON = false;
+
+        //    Cursor.lockState = CursorLockMode.Locked;
+        //    Cursor.visible = false;
+        //}
+        //else
+        //{
+        Time.timeScale = 1;
+        mouselook.LookEnabled = true;
+        PostProcessVolume ppVolume = blurCamera.GetComponent<PostProcessVolume>();
+        ppVolume.enabled = false;
+        //MenuParent.SetActive(false);
+        PauseMenu.SetActive(false);
+        PlayerHUD.SetActive(true);
+        pauseMenuOFF = true;
+        pauseMenuON = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        //}
     }
 
     public void Options()

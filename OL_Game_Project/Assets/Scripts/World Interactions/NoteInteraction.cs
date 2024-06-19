@@ -33,9 +33,10 @@ public class NoteInteraction : Interactable
     [Tooltip("Defines the functions that will be executed upon an interaction event.")]
     [SerializeField] private UnityEvent interactionEvents;
 
-    //[SerializeField] public bool readingActive = false;
     private bool readingActive = false;
     private bool eventsFired = false;
+
+    public PlayerController playerControllerNOTE;
 
     /// <summary>
     /// Returns the text content that will be displayed when the player interacts with the note.
@@ -84,6 +85,7 @@ public class NoteInteraction : Interactable
             {
                 NoteInteractionEvent.Invoke(this, true);
                 readingActive = true;
+                playerControllerNOTE.NoteCHECK = readingActive;
                 engagedAction = this;
                 if (interactionEventsFireOnDisengage == false)
                 {
@@ -104,6 +106,7 @@ public class NoteInteraction : Interactable
         {
             NoteInteractionEvent.Invoke(null, false);
             readingActive = false;
+            playerControllerNOTE.NoteCHECK = readingActive;
             PlaySound(disengageClip, aSrc);
             if(interactionEventsFireOnDisengage == true)
             {

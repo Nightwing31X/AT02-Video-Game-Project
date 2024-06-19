@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "D:\\Files\\Github\\AT02-Video-Game-Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\World Interactions\\CutSceneEnter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:OL_Game_Project\\Assets\\Scripts\\World Interactions\\CutSceneEnter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\Player\\TorchBehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:OL_Game_Project\\Assets\\Scripts\\Player\\TorchBehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\Player\\PlayerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:OL_Game_Project\\Assets\\Scripts\\Player\\PlayerController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\Player\\Prompts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:OL_Game_Project\\Assets\\Scripts\\Player\\Prompts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\World Interactions\\PickUpInteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:OL_Game_Project\\Assets\\Scripts\\World Interactions\\PickUpInteraction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CutSceneEnter.cs",
-              "DocumentMoniker": "D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\World Interactions\\CutSceneEnter.cs",
-              "RelativeDocumentMoniker": "OL_Game_Project\\Assets\\Scripts\\World Interactions\\CutSceneEnter.cs",
-              "ToolTip": "D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\World Interactions\\CutSceneEnter.cs",
-              "RelativeToolTip": "OL_Game_Project\\Assets\\Scripts\\World Interactions\\CutSceneEnter.cs",
-              "ViewState": "AQIAAFEAAAAAAAAAAAAAAGMAAAAlAAAA",
+              "DocumentIndex": 2,
+              "Title": "Prompts.cs",
+              "DocumentMoniker": "D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\Player\\Prompts.cs",
+              "RelativeDocumentMoniker": "OL_Game_Project\\Assets\\Scripts\\Player\\Prompts.cs",
+              "ToolTip": "D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\Player\\Prompts.cs",
+              "RelativeToolTip": "OL_Game_Project\\Assets\\Scripts\\Player\\Prompts.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAAFMAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-08T07:48:11.477Z",
+              "WhenOpened": "2024-06-18T09:02:28.274Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PickUpInteraction.cs",
+              "DocumentMoniker": "D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\World Interactions\\PickUpInteraction.cs",
+              "RelativeDocumentMoniker": "OL_Game_Project\\Assets\\Scripts\\World Interactions\\PickUpInteraction.cs",
+              "ToolTip": "D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\World Interactions\\PickUpInteraction.cs",
+              "RelativeToolTip": "OL_Game_Project\\Assets\\Scripts\\World Interactions\\PickUpInteraction.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T08:55:27.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\Player\\PlayerController.cs",
+              "RelativeDocumentMoniker": "OL_Game_Project\\Assets\\Scripts\\Player\\PlayerController.cs",
+              "ToolTip": "D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\Player\\PlayerController.cs",
+              "RelativeToolTip": "OL_Game_Project\\Assets\\Scripts\\Player\\PlayerController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T08:46:44.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TorchBehaviour.cs",
+              "DocumentMoniker": "D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\Player\\TorchBehaviour.cs",
+              "RelativeDocumentMoniker": "OL_Game_Project\\Assets\\Scripts\\Player\\TorchBehaviour.cs",
+              "ToolTip": "D:\\Files\\Github\\AT02-Video-Game-Project\\OL_Game_Project\\Assets\\Scripts\\Player\\TorchBehaviour.cs",
+              "RelativeToolTip": "OL_Game_Project\\Assets\\Scripts\\Player\\TorchBehaviour.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAAAEcAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T08:46:22.031Z",
               "EditorCaption": ""
             }
           ]

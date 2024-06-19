@@ -17,12 +17,12 @@ public class MainMenuLogic : MonoBehaviour
     void Start()
     {
         MainMenu = GameObject.Find("MainMenuCanvas");
-        OptionsMenu = GameObject.Find("OptionsCanvas");
+        //OptionsMenu = GameObject.Find("OptionsCanvas");
         ControlsMenu = GameObject.Find("ControlsCanvas");
         //Loading = GameObject.Find("LoadingCanvas");
 
         MainMenu.GetComponent<Canvas>().enabled = true;
-        OptionsMenu.GetComponent<Canvas>().enabled = false;
+        //OptionsMenu.GetComponent<Canvas>().enabled = false;
         ControlsMenu.GetComponent<Canvas>().enabled = false;
         //Loading.GetComponent<Canvas>().enabled = false;
     }
@@ -40,7 +40,7 @@ public class MainMenuLogic : MonoBehaviour
     {
         ButtonSound.Play();
         MainMenu.GetComponent<Canvas>().enabled = false;
-        OptionsMenu.GetComponent<Canvas>().enabled = true;
+        //OptionsMenu.GetComponent<Canvas>().enabled = true;
     }
 
     public void ControlsButton()
@@ -61,7 +61,7 @@ public class MainMenuLogic : MonoBehaviour
     {
         ButtonSound.Play();
         MainMenu.GetComponent<Canvas>().enabled = true;
-        OptionsMenu.GetComponent<Canvas>().enabled = false;
+        //OptionsMenu.GetComponent<Canvas>().enabled = false;
         ControlsMenu.GetComponent<Canvas>().enabled = false;
     }
 }

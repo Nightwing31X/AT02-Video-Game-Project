@@ -45,15 +45,20 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private AudioSource aSrc;
 
-    private float sprintMovementSpeed = 0f; //# Reference for the speed when sprinting
-    public Image staminaBar;
-    [SerializeField] private float stamina, maxStamina = 100;
-    [SerializeField] private float staminaCost = 20;
-    [SerializeField] private float chargeRate;
-    private Coroutine recharge;
+    public GameObject swayObj;
+    public bool NoteCHECK;
 
 
-    public bool inCutscene; //# Checks if player is in a cutscene 
+
+    //private float sprintMovementSpeed = 0f; //# Reference for the speed when sprinting
+    //public Image staminaBar;
+    //[SerializeField] private float stamina, maxStamina = 100;
+    //[SerializeField] private float staminaCost = 20;
+    //[SerializeField] private float chargeRate;
+    //private Coroutine recharge;
+
+
+    //public bool inCutscene; //# Checks if player is in a cutscene 
 
     /// <summary>
     /// Enables/disables the ability to move the player character by device input.
@@ -124,7 +129,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         currentMovementSpeed = defaultSpeed;
-        sprintMovementSpeed = currentMovementSpeed * 2;
+        //sprintMovementSpeed = currentMovementSpeed * 2;
         //Debug.Log(currentMovementSpeed);
         //Debug.Log(sprintMovementSpeed);
     }
@@ -157,65 +162,74 @@ public class PlayerController : MonoBehaviour
             Jump();
             ApplyMovementTick();
 
-            if (controller.isGrounded)
-            { 
-                if (Input.GetButton("Sprint"))
-                {
-                    //Debug.Log(currentMovementSpeed);
-                    if (stamina > 0)
-                    {
-                        currentMovementSpeed = sprintMovementSpeed;
+            //if (controller.isGrounded)
+            //{ 
+            //    if (Input.GetButton("Sprint"))
+            //    {
+            //        //Debug.Log(currentMovementSpeed);
+            //        if (stamina > 0)
+            //        {
+            //            currentMovementSpeed = sprintMovementSpeed;
 
-                        stamina -= staminaCost * Time.deltaTime;
-                        if (stamina < 0)
-                        {
-                            stamina = 0;
-                        }
-                        staminaBar.fillAmount = stamina / maxStamina;
-                    }
-                    else
-                    {
-                        currentMovementSpeed = defaultSpeed;
-                        //Debug.Log(currentMovementSpeed);
-                    }
+            //            stamina -= staminaCost * Time.deltaTime;
+            //            if (stamina < 0)
+            //            {
+            //                stamina = 0;
+            //            }
+            //            staminaBar.fillAmount = stamina / maxStamina;
+            //        }
+            //        else
+            //        {
+            //            currentMovementSpeed = defaultSpeed;
+            //            //Debug.Log(currentMovementSpeed);
+            //        }
 
-                    if (recharge != null)
-                    {
-                        StopCoroutine(recharge);
-                    }
-                    recharge = StartCoroutine(RechargeStamina());
-                }
-                else
-                {
-                    currentMovementSpeed = defaultSpeed;
-                    //Debug.Log(currentMovementSpeed);
-                }
-            }
+            //        if (recharge != null)
+            //        {
+            //            StopCoroutine(recharge);
+            //        }
+            //        recharge = StartCoroutine(RechargeStamina());
+            //    }
+            //    else
+            //    {
+            //        currentMovementSpeed = defaultSpeed;
+            //        //Debug.Log(currentMovementSpeed);
+            //    }
+            //}
         }
         else
         {
             ApplyMovementTick(true);
         }
+
+        if (NoteCHECK)
+        {
+            swayObj.GetComponent<TorchSway>().enabled = false;
+        }
+        else
+        {
+            swayObj.GetComponent<TorchSway>().enabled = true;
+        }
     }
 
     //# Recharges the sprintBar - waits 1 second until it starts to recharge
-    private IEnumerator RechargeStamina()
-    {
-        yield return new WaitForSeconds(1f);
+    //private IEnumerator RechargeStamina()
+    //{
+    //    yield return new WaitForSeconds(1f);
 
 
-        while (stamina < maxStamina)
-        {
-            //stamina += chargeRate / 10f;
-            stamina += chargeRate;
-            if (stamina > maxStamina)
-            {
-                stamina = maxStamina;
-            }
-            staminaBar.fillAmount = stamina / maxStamina;
-            yield return new WaitForSeconds(.1f);
-        }
-    }
+    //    while (stamina < maxStamina)
+    //    {
+    //        //stamina += chargeRate / 10f;
+    //        stamina += chargeRate;
+    //        if (stamina > maxStamina)
+    //        {
+    //            stamina = maxStamina;
+    //        }
+    //        staminaBar.fillAmount = stamina / maxStamina;
+    //        yield return new WaitForSeconds(.1f);
+    //    }
+    //}
 
     /// <summary>
     /// Causes the character to jump when jumping input has been detected.

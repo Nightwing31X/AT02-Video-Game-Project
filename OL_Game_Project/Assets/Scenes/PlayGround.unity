@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -866,6 +866,7 @@ MonoBehaviour:
   interactionEvents:
     m_PersistentCalls:
       m_Calls: []
+  readingActive: 0
 --- !u!65 &133711565
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2745,7 +2746,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &638929159
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3069,6 +3070,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efdcc61dd80408248b8bfca364ef7f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  verboseLogs: 0
+  gizmosOnSelected: 0
+  customText: 0
+  customIcon: 0
+  customHighlight: 0
+  textColor:
+    serializedVersion: 2
+    rgba: 4289967027
+  iconColor:
+    serializedVersion: 2
+    rgba: 4289967027
+  highlightColor:
+    serializedVersion: 2
+    rgba: 4292850432
+  textStyle: 3
+  textAlignment: 0
 --- !u!1 &784134033
 GameObject:
   m_ObjectHideFlags: 0
@@ -3696,6 +3713,7 @@ MonoBehaviour:
   interactionEvents:
     m_PersistentCalls:
       m_Calls: []
+  readingActive: 0
 --- !u!65 &861005708
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4312,6 +4330,7 @@ MonoBehaviour:
   interactionEvents:
     m_PersistentCalls:
       m_Calls: []
+  readingActive: 0
 --- !u!65 &985694545
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7221,7 +7240,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1490940846
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7360,7 +7379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1513096567
 Transform:
   m_ObjectHideFlags: 0
@@ -7639,12 +7658,6 @@ MonoBehaviour:
   jumpClips:
   - {fileID: 8300000, guid: e29f45eb28dc9d840afd380ec83ae281, type: 3}
   - {fileID: 8300000, guid: 3e95a493fb8b17941914c8e355784642, type: 3}
-  staminaBar: {fileID: 337936970}
-  stamina: 100
-  maxStamina: 100
-  staminaCost: 20
-  chargeRate: 1
-  inCutscene: 0
 --- !u!143 &1525924398
 CharacterController:
   m_ObjectHideFlags: 0
@@ -7755,6 +7768,8 @@ MonoBehaviour:
   Light: {fileID: 289568418}
   turnOn: {fileID: 863220294}
   turnOff: {fileID: 863220294}
+  TorchDuration: 5
+  charge: 4
 --- !u!114 &1525924403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7774,7 +7789,6 @@ MonoBehaviour:
   optionsBTN: {fileID: 784134033}
   exitBTN: {fileID: 1016084241}
   PlayerHUD: {fileID: 489064409}
-  cutsceneCHECK: {fileID: 1525924397}
   mouselook: {fileID: 634370002}
   blurCamera: {fileID: 147043997}
   pauseMenuON: 0
@@ -8144,6 +8158,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efdcc61dd80408248b8bfca364ef7f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  verboseLogs: 0
+  gizmosOnSelected: 0
+  customText: 0
+  customIcon: 0
+  customHighlight: 0
+  textColor:
+    serializedVersion: 2
+    rgba: 4289967027
+  iconColor:
+    serializedVersion: 2
+    rgba: 4289967027
+  highlightColor:
+    serializedVersion: 2
+    rgba: 4292850432
+  textStyle: 3
+  textAlignment: 0
 --- !u!4 &1565713345
 Transform:
   m_ObjectHideFlags: 0
@@ -9015,18 +9045,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1778772536}
-        m_TargetAssemblyTypeName: CutSceneEnter, Assembly-CSharp
-        m_MethodName: cutsceneStart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!82 &1778772530
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9140,17 +9158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b5b9951fecbc6458d26a6fb8cb9468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thePlayer: {fileID: 1525924394}
-  playerHUD: {fileID: 489064409}
-  playerCAM: {fileID: 634369998}
-  cutsceneCAM: {fileID: 793306846}
-  cutsceneCHECK: {fileID: 1525924397}
-  durationTIME: 4
-  lowtime: 100
-  maxtime: 100
-  seconds: 100
-  howlong: 100
-  skipBar: {fileID: 1359122443}
 --- !u!1 &1789224184
 GameObject:
   m_ObjectHideFlags: 0
@@ -10409,17 +10416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b5b9951fecbc6458d26a6fb8cb9468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thePlayer: {fileID: 1525924394}
-  playerHUD: {fileID: 489064409}
-  playerCAM: {fileID: 634369998}
-  cutsceneCAM: {fileID: 793306846}
-  cutsceneCHECK: {fileID: 1525924397}
-  durationTIME: 4
-  lowtime: 100
-  maxtime: 100
-  seconds: 100
-  howlong: 100
-  skipBar: {fileID: 1359122443}
 --- !u!65 &2109416378
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10893,6 +10889,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  readingActive: 0
 --- !u!65 &2132249404
 BoxCollider:
   m_ObjectHideFlags: 0
