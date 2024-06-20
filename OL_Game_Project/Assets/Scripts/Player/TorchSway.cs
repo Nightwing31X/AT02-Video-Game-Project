@@ -9,8 +9,7 @@ public class TorchSway : MonoBehaviour
     [SerializeField] private float multiplier;
 
     private void Update()
-    {
-        // get mouse input
+    {        // get mouse input
         float mouseX = Input.GetAxisRaw("Mouse X") * multiplier;
         float mouseY = Input.GetAxisRaw("Mouse Y") * multiplier;
 

@@ -9,7 +9,7 @@ public class PauseGame : MonoBehaviour {
 
     public GameObject MenuParent;
     public GameObject PauseMenu;
-    public GameObject OptionsMenu;
+    //public GameObject OptionsMenu;
     public GameObject resumeBTN;
     public GameObject optionsBTN;
     public GameObject exitBTN;
@@ -25,7 +25,7 @@ public class PauseGame : MonoBehaviour {
     public PlayerController playerControllerNOTE;
     public GUIManager ManagerNote;
 
-
+    PostProcessVolume ppVolume;
     public bool pauseMenuON;
     public bool pauseMenuOFF;
 
@@ -33,11 +33,11 @@ public class PauseGame : MonoBehaviour {
     void Start()
     {
         Time.timeScale = 1;
-        PostProcessVolume ppVolume = blurCamera.GetComponent<PostProcessVolume>();
+        ppVolume = blurCamera.GetComponent<PostProcessVolume>();
         ppVolume.enabled = false;
         MenuParent.SetActive(true);
         PauseMenu.SetActive(false);
-        OptionsMenu.SetActive(false);
+        //OptionsMenu.SetActive(false);
         pauseMenuOFF = true;
         pauseMenuON = false;
     }
@@ -48,7 +48,7 @@ public class PauseGame : MonoBehaviour {
         //if (playerControllerNOTE.NoteCHECK == false)
         //{
         //Debug.Log("TRUE...");
-        PostProcessVolume ppVolume = blurCamera.GetComponent<PostProcessVolume>();
+        //ppVolume = blurCamera.GetComponent<PostProcessVolume>();
         //Debug.Log(cutsceneCHECK.inCutscene);
         if (pauseMenuOFF && Input.GetButtonDown("Pause"))
         {
@@ -93,7 +93,7 @@ public class PauseGame : MonoBehaviour {
             ppVolume.enabled = false;
             //MenuParent.SetActive(false);
             PauseMenu.SetActive(false);
-            OptionsMenu.SetActive(false);
+            //OptionsMenu.SetActive(false);
             PlayerHUD.SetActive(true);
             pauseMenuOFF = true;
             pauseMenuON = false;
@@ -143,12 +143,12 @@ public class PauseGame : MonoBehaviour {
         //}
     }
 
-    public void Options()
-    {
-        PauseMenu.SetActive(false);
-        OptionsMenu.SetActive(true);
-        //Debug.Log("Button Clicked...OptionsMenu Opened");
-    }
+    // public void Options()
+    // {
+    //     PauseMenu.SetActive(false);
+    //     OptionsMenu.SetActive(true);
+    //     //Debug.Log("Button Clicked...OptionsMenu Opened");
+    // }
 
     public void Exit()
     {

@@ -10,7 +10,7 @@ using UnityEngine.UI;
 /// Last Updated: March, 2024
 /// 
 /// ###---**COPYRIGHT STATEMENT**---###
-/// © Copyright 2024 South Metropolitan TAFE. All rights reserved.
+/// ï¿½ Copyright 2024 South Metropolitan TAFE. All rights reserved.
 /// This code is provided to student's of South Metropolitan TAFE for educational purposes only.
 /// Unauthorized use, including but not limited to sharing, redistributing, copying, or commercialising
 /// this code or any part of it, without the express written permission of the authors, is strictly prohibited.
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private AudioSource aSrc;
 
-    public GameObject swayObj;
+    //public GameObject swayObj;
     public bool NoteCHECK;
 
 
@@ -202,14 +202,14 @@ public class PlayerController : MonoBehaviour
             ApplyMovementTick(true);
         }
 
-        if (NoteCHECK)
-        {
-            swayObj.GetComponent<TorchSway>().enabled = false;
-        }
-        else
-        {
-            swayObj.GetComponent<TorchSway>().enabled = true;
-        }
+        // if (NoteCHECK)
+        // {
+        //     swayObj.GetComponent<TorchSway>().enabled = false;
+        // }
+        // else
+        // {
+        //     swayObj.GetComponent<TorchSway>().enabled = true;
+        // }
     }
 
     //# Recharges the sprintBar - waits 1 second until it starts to recharge

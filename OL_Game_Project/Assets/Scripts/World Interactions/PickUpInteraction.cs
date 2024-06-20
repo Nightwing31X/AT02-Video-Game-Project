@@ -55,8 +55,8 @@ public class PickUpInteraction : MonoBehaviour
 
     public void PickUP_Battery()
     {
-        //if (batteryCHECK.currentcharge > batteryCHECK.MAXcharge)
-        if (batteryCHECK.MAXcharge > batteryCHECK.currentcharge && batteryCHECK.currentcharge > 0)
+        //if (batteryCHECK.MAXcharge > batteryCHECK.currentcharge && batteryCHECK.currentcharge > 0)
+        if (batteryCHECK.currentcharge < batteryCHECK.MAXcharge)
         {
             StartCoroutine(Delay());
         }

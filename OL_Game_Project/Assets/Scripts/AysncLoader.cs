@@ -11,6 +11,8 @@ public class AysncLoader : MonoBehaviour
     public GameObject loadingScreen;
     public Image loadingBarFill;
     public TMP_Text progressText;
+    public string sceneToLoad;
+
 
 
     void Awake()
@@ -18,27 +20,32 @@ public class AysncLoader : MonoBehaviour
         loadingScreen.SetActive(false);
     }
 
-    public void LoadScene(string sceneTitle)
+    public void StartButton()
     {
-        StartCoroutine(LoadSyncAsync(sceneTitle));
+        SceneManager.LoadScene(sceneToLoad);
     }
 
-    IEnumerator LoadSyncAsync(string sceneTitle)
-    {
+    // public void LoadScene(string sceneTitle)
+    // {
+    //     StartCoroutine(LoadSyncAsync(sceneTitle));
+    // }
 
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneTitle);
+    // IEnumerator LoadSyncAsync(string sceneTitle)
+    // {
 
-        loadingScreen.SetActive(true);
+    //     AsyncOperation operation = SceneManager.LoadSceneAsync(sceneTitle);
+
+    //     loadingScreen.SetActive(true);
 
 
-        while (!operation.isDone)
-        {
-            float progressValue = Mathf.Clamp01(operation.progress / 0.9f);
+    //     while (!operation.isDone)
+    //     {
+    //         float progressValue = Mathf.Clamp01(operation.progress / 0.9f);
 
-            loadingBarFill.fillAmount = progressValue;
-            progressText.text = progressValue * 100f + "%";
+    //         loadingBarFill.fillAmount = progressValue;
+    //         progressText.text = progressValue * 100f + "%";
 
-            yield return null;
-        }
-    }
+    //         yield return null;
+    //     }
+    // }
 }

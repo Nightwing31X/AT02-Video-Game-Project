@@ -27,7 +27,7 @@ public class Prompts : MonoBehaviour
     public int numberOfObjects;
 
     public bool SplitObjs;
-
+    public bool CheckObj;
 
     //private float current = 0;
     bool textOn;
@@ -47,6 +47,7 @@ public class Prompts : MonoBehaviour
         if (textOn)
         {
             TextOBJ.SetActive(true);
+            Debug.Log("Prompts...");
         }
     }
 
@@ -83,33 +84,44 @@ public class Prompts : MonoBehaviour
         }
     }
 
+    public void HideText()
+    {
+        textOn = false;
+        if (textOn==false)
+        {
+            TextOBJ.SetActive(false);
+            Debug.Log("now...");
+        }
+        Debug.Log("this...");
+    }
+
+    // private IEnumerator FunctionHideText()
+    // {
+
+    // }
+
     private IEnumerator ShowPromptText()
     {
-        if (showText)
-        {
-            SubTxt.text = string.Format(textContent);
-            //TextOBJ.SetActive(false);
-            Debug.Log("Showing...");
-            //yield return new WaitForSeconds(6f);
-            if (SecondsOfReading == 0)
-            {
-                SecondsOfReading = 6f;
-            }
-            yield return new WaitForSeconds(SecondsOfReading);
-            textOn = false;
-            TextOBJ.SetActive(false);
-            Debug.Log("Showing...");
-        }
-
         if (SplitObjs)
         {
-            if (ObjVanish)
+            if (CheckObj)
             {
-                arrayOfObjs = ObjsToVanish;
+                if (ObjVanish)
+                {
+                    arrayOfObjs = ObjsToVanish;
+                    if (ObjAppear)
+                    {
+                        StartCoroutine(AppearAllObjects());
+                    }
+                }
             }
             else
             {
                 arrayOfObjs = ObjsToAppear;
+                if (ObjVanish)
+                {
+                    StartCoroutine(VanishAllObjects());
+                }
             }
             StartCoroutine(HalfObjects(numberOfObjects));
         }
@@ -124,6 +136,22 @@ public class Prompts : MonoBehaviour
             {
                 StartCoroutine(AppearAllObjects());
             }
+        }
+
+        if (showText)
+        {
+            SubTxt.text = string.Format(textContent);
+            //TextOBJ.SetActive(false);
+            Debug.Log("Showing...");
+            //yield return new WaitForSeconds(6f);
+            if (SecondsOfReading == 0)
+            {
+                SecondsOfReading = 6f;
+            }
+            yield return new WaitForSeconds(SecondsOfReading);
+            textOn = false;
+            TextOBJ.SetActive(false);
+            Debug.Log("Showing...");
         }
     }
 
@@ -205,7 +233,7 @@ public class Prompts : MonoBehaviour
             // Ensure the object at index i hasn't been deactivated already
             if (!indicesAppear.Contains(i))
             {
-                Debug.Log("Show Batteries...");
+                Debug.Log("Show Random...");
                 arrayOfObjs[i].SetActive(true);
                 indicesAppear.Add(i);
             }
